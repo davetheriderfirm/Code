@@ -1,0 +1,9 @@
+First function only checks the first letter as it returns in either case.
+
+Second function always returns True as string 'c' is lowercase (the variable c is not tested).
+
+Third function checks every letter in turn but by the time it returns, flag relates to the final letter check, so only the final letter matters.
+
+Fourth function works!
+
+Fifth function returns False as soon as it finds a letter that is not lower case, so only returns True if all letters are lower case.

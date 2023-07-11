@@ -1,0 +1,17 @@
+__main__  (for recurse(3,0)) 
+
+recurse    n --> 3
+           s --> 0
+
+recurse    n --> 2
+           s --> 3
+
+recurse    n --> 1
+           s --> 5
+
+recurse    n --> 0
+           s --> 6
+
+
+for recurse(-1,0) we will get an max recursion level error as the base case is never reached.
+

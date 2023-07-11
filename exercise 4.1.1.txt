@@ -1,0 +1,5 @@
+__main__     bob --> turtle.Turtle object
+          radius --> 100
+
+circle         r --> 100
+               t --> turtle.Turtle object
