@@ -1,0 +1,4 @@
+This is my input for the chapter 13 exercises! It is just some sentences with some punctuation in there too, to check I can turn this file
+into a collection of words. Will I be able to do this? Let's find out!
+There's no better time to start than the present.
+I reckon this will be a good lesson in how to use string methods.
