@@ -11,11 +11,13 @@ def split_line(linetext,bookhist):
         word = word.lower()
         bookhist[word] = bookhist.get(word, 0) + 1
                 
-fin = open('davebook.txt')
-#fin = open('marshals.txt')
+#fin = open('davebook.txt')
+fin = open('marshals.txt')
 bookhist = {}
 
 for linetext in fin:
     split_line(linetext,bookhist)
 
 fin.close()
+print(sum(bookhist.values()), 'total words')
+print(len(bookhist), 'different words')

@@ -10,12 +10,25 @@ def split_line(linetext,bookhist):
         word = word.strip(string.punctuation + string.whitespace)
         word = word.lower()
         bookhist[word] = bookhist.get(word, 0) + 1
+
+def common_hist(hist):
+    tuplist = []
+    for key, value in hist.items():
+        tuplist.append((value, key))
+    tuplist.sort(reverse=True)
+    return tuplist
                 
-fin = open('davebook.txt')
-#fin = open('marshals.txt')
+#fin = open('davebook.txt')
+fin = open('marshals.txt')
 bookhist = {}
 
 for linetext in fin:
     split_line(linetext,bookhist)
 
 fin.close()
+print(sum(bookhist.values()), 'total words')
+print(len(bookhist), 'different words')
+
+tuplist = common_hist(bookhist)
+for freq, word in tuplist[:200]:
+    print(word, 'appears', freq, 'times')
