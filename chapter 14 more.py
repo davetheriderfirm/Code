@@ -2,6 +2,7 @@ import os
 import dbm
 import pickle
 import wc
+import hashlib
 
 db = dbm.open('sausages', 'c')
 
@@ -14,11 +15,11 @@ for key in db.keys():
 
 db.close()
 
-#filename = 'davebook.txt'
-#cmd = 'md5sum ' + filename
-#fp = os.popen(cmd)
-#res = fp.read()
-#stat = fp.close()
-#print(res)
+filename = 'davebook.txt'
+cmd = 'CertUtil -hashfile ' + filename + ' MD5'
+fp = os.popen(cmd)
+res = fp.read()
+stat = fp.close()
+print(res)
 
 wc.linecount('wc.py')
