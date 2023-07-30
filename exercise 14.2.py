@@ -1,23 +1,26 @@
 import anagram_sets
 import dbm
 import pickle
+import shelve
 
-def store_anagrams(anag_map):
+def store_anagrams(filename, anag_map):
+    shelf = shelve.open(filename, 'c')
     for key, value in anagram_map.items():
-        db[key] = pickle.dumps(value)
+        shelf[key] = value
 
-def read_anagrams(inword):
+    shelf.close()
+
+def read_anagrams(filename, inword):
+    shelf = shelve.open(filename)
+    sig = anagram_sets.signature(inword)
+    print(inword + ' ' + sig)
     try:
-        outlist = db[inword]
-    except:
-        print(inword + ' is not in the wordlist.')
-        return
-    print(pickle.loads(outlist))
+        return shelf(sig)
+    except KeyError:
+        return (inword + ' is not in the wordlist.')
         
-db = dbm.open('myanagrams', 'c')
+#db = dbm.open('myanagrams', 'c')
 anagram_map = anagram_sets.all_anagrams('words.txt')
-store_anagrams(anagram_map)
+store_anagrams('myanagrams.db', anagram_map)
 
-read_anagrams('nest')
-
-db.close()
+print(read_anagrams('mayanagrams.db', 'nest'))
