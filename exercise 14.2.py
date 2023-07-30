@@ -13,14 +13,13 @@ def store_anagrams(filename, anag_map):
 def read_anagrams(filename, inword):
     shelf = shelve.open(filename)
     sig = anagram_sets.signature(inword)
-    print(inword + ' ' + sig)
     try:
-        return shelf(sig)
+        return shelf[sig]
     except KeyError:
         return (inword + ' is not in the wordlist.')
         
 #db = dbm.open('myanagrams', 'c')
-anagram_map = anagram_sets.all_anagrams('words.txt')
-store_anagrams('myanagrams.db', anagram_map)
+#anagram_map = anagram_sets.all_anagrams('words.txt')
+#store_anagrams('myanagrams.db', anagram_map)
 
-print(read_anagrams('mayanagrams.db', 'nest'))
+print(read_anagrams('myanagrams.db', 'xraral'))
