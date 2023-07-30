@@ -15,4 +15,8 @@ def os_walk(dirname):
 
 cwd = os.getcwd()
 print(cwd)
-os_walk(cwd)
+#os_walk(cwd)
+try:
+    fin = open('bad_file')
+except:
+    print('WTF?')
