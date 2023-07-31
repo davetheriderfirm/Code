@@ -22,4 +22,4 @@ def read_anagrams(filename, inword):
 #anagram_map = anagram_sets.all_anagrams('words.txt')
 #store_anagrams('myanagrams.db', anagram_map)
 
-print(read_anagrams('myanagrams.db', 'xraral'))
+print(read_anagrams('myanagrams.db', 'trap'))
