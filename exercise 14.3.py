@@ -1,11 +1,9 @@
 import os
 import shelve
+import hashlib
 
 def md5_file(filename):
-    cmd = "CertUtil -hashfile " + "'" + filename + "'" " MD5"
-    fp = os.popen(cmd)
-    res = fp.read()
-    stat = fp.close()
+    res = hashlib.md5(filename)
     return(res)
 
 def check_shelf(filepath, filename):
