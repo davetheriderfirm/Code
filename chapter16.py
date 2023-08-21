@@ -14,16 +14,31 @@ def is_after(t1,t2):
            or (t1.hour == t2.hour and t1.minute > t2.minute)  
            or (t1.hour == t2.hour and t1.minute == t2.minute and t1.second > t2.second)) 
 
-def increment(time, seconds):
-    newtime = copy.copy(time)
-    newtime.second += seconds
-    if newtime.second >= 60:
-        newtime.minute += newtime.second // 60
-        newtime.second = newtime.second % 60
-    if newtime.minute >= 60:
-        newtime.hour += newtime.minute // 60
-        newtime.minute = newtime.minute % 60
-    return(newtime)
+def time_to_int(time):
+    minutes = time.hour * 60 + time.minute
+    seconds = minutes * 60 + time.second
+    return seconds
+
+def int_to_time(seconds):
+    time = Time()
+    minutes, time.second = divmod(seconds, 60)
+    time.hour, time.minute = divmod(minutes, 60)
+    return time
+
+def increment(time,seconds):
+    seconds += time_to_int(time)
+    return(int_to_time(seconds))
+
+#def increment(time, seconds):
+#    newtime = copy.copy(time)
+#    newtime.second += seconds
+#    if newtime.second >= 60:
+#        newtime.minute += newtime.second // 60
+#        newtime.second = newtime.second % 60
+#    if newtime.minute >= 60:
+#        newtime.hour += newtime.minute // 60
+#        newtime.minute = newtime.minute % 60
+#    return(newtime)
     
 
 time1 = Time()
