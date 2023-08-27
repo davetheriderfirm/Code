@@ -5,14 +5,11 @@ class Time:
     
     attributes: hour, minute, second
     """
-
+    def is_after(self, other: "Time") -> bool:
+        return time_to_int(self) > time_to_int(other)
+        
 def print_time(teatime):
     print('%.2d' % teatime.hour,':','%.2d' % teatime.minute,':','%.2d' % teatime.second)
-
-def is_after(t1,t2):
-    return(t1.hour > t2.hour 
-           or (t1.hour == t2.hour and t1.minute > t2.minute)  
-           or (t1.hour == t2.hour and t1.minute == t2.minute and t1.second > t2.second)) 
 
 def time_to_int(time):
     minutes = time.hour * 60 + time.minute
@@ -53,7 +50,7 @@ time2.second = 0
 #print_time(time1)
 #print_time(time2)
 
-#print(is_after(time1,time2))
+print(time2.is_after(time1))
 
 print_time(increment(time1,6190))
 print_time(time1)
