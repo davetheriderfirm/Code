@@ -1,6 +1,6 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "python.autoComplete.extraPaths": "c:\users\random\miniconda3\lib\site-packages" [
+    "python.autoComplete.extraPaths": ["c:\users\random\miniconda3\lib\site-packages" 
 
     ]
 }
