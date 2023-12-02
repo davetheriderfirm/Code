@@ -21,7 +21,7 @@ def find_match(wp, tr_index):
        waypoint and the current trackpoint is within the radius.
        Returns the index needed for starting the next check'''
     while tr_index < len(tracklist): 
-        print(tr_index)
+#        print(tr_index)
         if wp_distance(waypoint, tracklist[tr_index],200):
 # We have a match, update the waypoint, return the index so that next time this function is called, the 
 # search begins from the next trackpoint rather than from the beginning again.
@@ -39,7 +39,8 @@ def update_waypoint(wp, tr_index):
     wp.latitude = tracklist[tr_index].latitude
 
 # Load the GPX file
-with open('Waypoint test.gpx', 'r') as gpx_file:
+#with open('Waypoint test.gpx', 'r') as gpx_file:
+with open('Tour of the Hills 2021.gpx', 'r') as gpx_file:
     gpx = gpxpy.parse(gpx_file)
 
 # Sort the waypoints by name
