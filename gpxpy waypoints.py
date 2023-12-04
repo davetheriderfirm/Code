@@ -3,7 +3,7 @@ import gpxpy
 # This utility reads in a GPX file with waypoints and outputs an updated version in a format that 
 # allows a Wahoo Elemnt Bolt GPS to use the waypoints as proximity alerts when traversing the track.
 # 1. Parse the input file as a GPX using gpxpy
-# 2. Sort the waypoints by description, so that they are in the correct order they will be passed when traversing the track. 
+# 2. Sort the waypoints by name, so that they are in the correct order they will be passed when traversing the track. 
 # 3. For each waypoint, find the first trackpoint that is within 200m of the waypoint. Update the lon/lat co-ordinates
 # of the waypoint to match those of the trackpoint.
 # 4. Write the output file from the updated GPX holder.
@@ -44,7 +44,7 @@ with open('Tour of the Hills 2021.gpx', 'r') as gpx_file:
     gpx = gpxpy.parse(gpx_file)
 
 # Sort the waypoints by name
-gpx.waypoints.sort(key=lambda waypoint: waypoint.description)
+gpx.waypoints.sort(key=lambda waypoint: waypoint.name)
 
 # Count the number of points
 # Generally our input file will have a single track with a single segment, but handle the case of multiple.
