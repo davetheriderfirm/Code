@@ -4,11 +4,11 @@ import gpxpy
 # allows a Wahoo Elemnt Bolt GPS to use the waypoints as proximity alerts when traversing the track.
 # 1. Parse the input file as a GPX using gpxpy
 # 2. Sort the waypoints by name, so that they are in the correct order they will be passed when traversing the track. 
-# 3. For each waypoint, find the first trackpoint that is within 200m of the waypoint. Update the lon/lat co-ordinates
-# of the waypoint to match those of the trackpoint.
+# 3. For each waypoint in turn, find the next trackpoint that is within 200m of the waypoint. Update the lon/lat co-ordinates
+# of the waypoint to match those of the trackpoint. 
 # 4. Write the output file from the updated GPX holder.
 
-def wp_distance(wp, tp, radius_metres):
+def wp_distance(wp, tp, radius_metres: int):
     '''Check whether the distance between the waypoint and the trackpoint is within the radius'''
     wp_dist = gpxpy.geo.haversine_distance(wp.latitude, wp.longitude, tp.latitude, tp.longitude)
     print(wp_dist)
@@ -23,7 +23,7 @@ def find_match(wp, tr_index):
     while tr_index < len(tracklist): 
 #        print(tr_index)
         if wp_distance(waypoint, tracklist[tr_index],200):
-# We have a match, update the waypoint, return the index so that next time this function is called, the 
+# We have a match, return the index so that next time this function is called, the 
 # search begins from the next trackpoint rather than from the beginning again.
 # We know this will work because we have ordered the waypoints already.            
             print(waypoint)        
@@ -33,7 +33,7 @@ def find_match(wp, tr_index):
 # We reached the end of the trackpoints with no match, so display an error message and end the whole script.
     print('No match within radius for waypoint', waypoint.description)    
 
-def update_waypoint(wp, tr_index):
+def update_waypoint(wp, tr_index: int):
     '''Updates the waypoint longitude and latitude from the matched trackpoint'''
     wp.longitude = tracklist[tr_index].longitude
     wp.latitude = tracklist[tr_index].latitude
