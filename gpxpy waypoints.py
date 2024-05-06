@@ -22,7 +22,7 @@ def find_match(wp, tr_index):
        Returns the index needed for starting the next check'''
     while tr_index < len(tracklist): 
 #        print(tr_index)
-        if wp_distance(waypoint, tracklist[tr_index],200):
+        if wp_distance(waypoint, tracklist[tr_index],100):
 # We have a match, return the index so that next time this function is called, the 
 # search begins from the next trackpoint rather than from the beginning again.
 # We know this will work because we have ordered the waypoints already.            
