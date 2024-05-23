@@ -40,7 +40,7 @@ def update_waypoint(wp, tr_index: int):
 
 # Load the GPX file
 #with open('Waypoint test.gpx', 'r') as gpx_file:
-with open('AWE with controls.gpx', 'r') as gpx_file:
+with open('Brimstone24 controls.gpx', 'r') as gpx_file:
     gpx = gpxpy.parse(gpx_file)
 
 # Sort the waypoints by name
