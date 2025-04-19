@@ -40,7 +40,7 @@ def update_waypoint(wp, tr_index: int):
 
 # Load the GPX file
 #with open('Waypoint test.gpx', 'r') as gpx_file:
-with open('TOTH 2024 final.gpx', 'r') as gpx_file:
+with open('Humbug_Audax_Route.gpx', 'r') as gpx_file:
     gpx = gpxpy.parse(gpx_file)
 
 # Sort the waypoints by name
